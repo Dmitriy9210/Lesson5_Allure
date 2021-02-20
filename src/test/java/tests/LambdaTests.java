@@ -14,9 +14,7 @@ import static io.qameta.allure.Allure.step;
 public class LambdaTests {
 
     private static final String BASE_URL = "http://github.com";
-
     private static final String ISSUES = "Issues";
-
     private static final String REPOSITORY = "Dmitriy9210/Lesson5_Allure";
     private static final String ISSUE_NUMBER = "#1";
 

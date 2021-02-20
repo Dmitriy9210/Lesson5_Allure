@@ -35,7 +35,7 @@ dependencies {
 
     compile "com.codeborne:selenide:5.18.0"
     compile "io.qameta.allure:allure-java-commons:2.13.8"
-    compile "io.qameta.allure:allure-selenide:2.13.8" 
+    compile "io.qameta.allure:allure-selenide:2.13.8"
 }
 
 test {
