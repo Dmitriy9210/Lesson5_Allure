@@ -5,7 +5,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -26,9 +26,7 @@ public class LambdaTests {
             open(BASE_URL);
         });
         step("Ищем репоизторий " + REPOSITORY, () -> {
-            $(".header-search-input").click();
-            $(".header-search-input").sendKeys(REPOSITORY);
-            $(".header-search-input").submit();
+            $(".header-search-input").setValue(REPOSITORY).submit();
         });
         step("Переходим в репозиторий " + REPOSITORY, () -> {
             $(By.linkText(REPOSITORY)).click();
@@ -37,7 +35,7 @@ public class LambdaTests {
             $(withText(ISSUES)).click();
         });
         step("Проверяем что Issue с номером " + ISSUE_NUMBER + " существует", () -> {
-            $(withText(ISSUE_NUMBER)).should(exist);
+            $(withText(ISSUE_NUMBER)).should(visible);
         });
     }
 }

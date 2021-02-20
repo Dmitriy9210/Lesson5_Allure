@@ -3,7 +3,7 @@ package steps;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -21,9 +21,7 @@ public class BaseSteps {
 
         @Step("Ищем репоизторий {repository}")
         public void searchRepo(String repository) {
-            $(".header-search-input").click();
-            $(".header-search-input").sendKeys(repository);
-            $(".header-search-input").submit();
+            $(".header-search-input").setValue(repository).submit();
         }
 
 
@@ -39,6 +37,6 @@ public class BaseSteps {
 
         @Step("Проверяем что Issue с номером {issueNumber} существует")
         public void checkIssue(String issueNumber) {
-            $(withText(issueNumber)).should(exist);
+            $(withText(issueNumber)).should(visible);
         }
     }

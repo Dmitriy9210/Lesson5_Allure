@@ -30,11 +30,9 @@ public class OnlySelenideTests {
     @DisplayName("Поиск Issue по номеру в репозитории")
     public void testIssueSearch() {
         open(BASE_URL);
-        $(".header-search-input").click();
-        $(".header-search-input").sendKeys(REPOSITORY);
-        $(".header-search-input").submit();
+        $(".header-search-input").setValue(REPOSITORY).submit();
         $(By.linkText(REPOSITORY)).click();
         $(withText(ISSUES)).click();
-        $(withText(ISSUE_NUMBER)).should(exist);
+        $(withText(ISSUE_NUMBER)).should(visible);
     }
 }
